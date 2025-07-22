@@ -1,0 +1,52 @@
+1. Check whether a character is a vowel or consonant 
+c = 'a'
+vowels =['a' , 'e' , 'i','o','u']
+
+// approach-1
+if(vowels.includes(c)) {
+    console.log("true")
+}
+else{
+    console.log(false)
+}
+
+2. Check whether a character is an alphabet or not
+
+#approach -1
+c = 'a'
+if('a' <= c || 'A' <= c){
+    console.log(true)
+}
+else{
+    console.log(false)
+}
+
+3. Calculating the length of the string
+string = 'Hello'
+// approach-1
+length =0
+for(let char of string){
+    length+=1
+}
+
+// approach-2
+length = string.length
+
+console.log(length)
+
+4. Toggle each character in a string
+
+string = 'GuDDuBHaiyA'
+
+// approach -1
+toggledString =""
+for(let char of string){
+    toggledString += char == char.toUpperCase() ? char.toLowerCase(): char.toUpperCase() 
+}
+
+5. Program to find the ASCII value of a character
+char ='z'
+
+console.log(char.charCodeAt(0))
+
+
