@@ -1,0 +1,37 @@
+Array questions:
+
+1. Find Largest element in an array
+#approach - 1
+arr = [10, 89, 9, 56, 4, 80, 8]
+largest = arr[0]
+
+for(let item of arr){
+    if(item > largest){
+        largest = item
+    }
+}
+
+#approach - 2
+largest = Math.max(...arr)
+
+#approach - 3
+arr.sort()
+largest = arr.at(-1)
+
+1. Find smallest element in an array
+#approach - 1
+arr = [10, 89, 9, 56, 4, 80, 8]
+smallest = arr[0]
+
+for(let item of arr){
+    if(item < smallest){
+        smallest = item
+    }
+}
+
+#approach - 2
+smallest = Math.min(...arr)
+
+#approach - 3 [without dublicates]
+arr.sort((a,b)=> b-a)
+largest = arr.at(-1)
