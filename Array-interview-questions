@@ -97,3 +97,148 @@ for(let item of arr){
     sum += item
 }
 
+6.Reverse an Array
+
+// approach -1
+arr =  [10, 20, 30, 40, 50]
+// approach -1
+arr.reverse()
+
+// approach -2 [reverse in sorted order]
+
+for(let i=0;i<=arr.length-1;i++){
+    for(let j=0;j<=arr.length-1-i;j++){
+        if(arr[j] < arr[j+1]){
+            [arr[j] , arr[j+1]] =[arr[j+1] , arr[j]]
+        }
+    }
+}
+
+// approach - 3
+let output =[]
+for(let i=arr.length-1;i>=0;i--){
+    output.push(arr[i])
+}
+
+// 7.Sort first half in ascending order and second half in descending order in an array
+
+ let arr = [1, 90, 34, 89, 7, 9]
+//  approach -1
+ let firstHalf = Math.floor(arr.length/2)
+ let ascending = arr.slice(0,firstHalf).sort((a,b) => a-b)
+ let deascending = arr.slice(firstHalf,arr.length).sort((a,b) => b-a)
+ let output = ascending.concat(deascending)
+ console.log(output)
+ 
+ for(let i=0;i<=arr.length-1;i++){
+     arr[i] = output[i]
+ }
+ 
+
+// approach -2
+
+arr.sort((a,b) => a-b)
+for(let i=0;i< firstHalf;i++){
+    [arr[firstHalf-i] ,arr[arr.length-1-i]] = [arr[arr.length-1-i],arr[firstHalf-i]]
+  
+    
+}
+
+// 8. sort the elements of an array
+
+ arr = [10, 40, 20, 30]
+
+
+
+// approach -1 [bubble sort]
+
+for(let i=arr.length-1;i>=0;i--){
+    for(let j=0;j<=i;j++){
+        if(arr[j] > arr[j+1]){
+            [arr[j] , arr[j+1]] =[arr[j+1] , arr[j]]
+        }
+    }
+}
+
+// approach -2 [selection sort]
+
+for(let i=0 ; i<=arr.length-2;i++){
+    let mini = i
+    for(let j=i;j<=arr.length-1;j++){
+        if(arr[j] < arr[mini]){
+            mini =j
+        }
+        
+    }
+    
+    [arr[mini] , arr[i]] = [arr[i] , arr[mini]]
+}
+
+// approach-3 insertion sort
+
+for(let i=0;i<=arr.length-1;i++){
+    let j=i
+    
+    while(j>0 && arr[j] < arr[j-1]){
+        [arr[j] ,arr[j-1]] = [arr[j-1] , arr[j]]
+        j-=1
+    }
+}
+
+// approach -4
+
+arr.sort((a,b) => a-b)
+
+
+// 9.Sorting elements of an array by frequency
+
+arr = [10, 30, 10, 20, 10, 20, 30,30,30,30,30, 10]
+
+// approach -1
+hash ={}
+for(let i=0;i<=arr.length-1;i++){
+    if(arr[i] in hash){
+        hash[arr[i]] +=1
+    }
+    else{
+        hash[arr[i]] =1
+    }
+}
+const result = Object.entries(hash).sort((a,b)=> b[1] - a[1])
+
+
+start =0
+end =0
+
+for(let data of result){
+    const typeCo = +(data[0])
+    end = start+data[1]
+    arr.fill(typeCo , start , end)
+    start += data[1]
+  
+}
+
+// approach -2
+
+for(let data of arr){
+    hash[data] = (hash[data] || 0) +1
+}
+
+arr.sort((a,b) => {
+    const freqA = a
+    const freqB = b
+    if(freqA == freqB){
+        return a-b
+    }
+    
+    return freqB - freqA
+})
+
+// 10.Finding the frequency of elements in an array
+ 
+ 
+//  approach -1
+for(let data of arr){
+    hash[data] = (hash[data] || 0) +1
+}
+
