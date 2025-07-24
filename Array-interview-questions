@@ -242,3 +242,171 @@ for(let data of arr){
     hash[data] = (hash[data] || 0) +1
 }
 
+// Longest Palindrome in an Array 
+arr = [1, 232, 5545455, 909090, 161]
+
+// approach-1
+let output =""
+for(let item of arr){
+   const data = item.toString()
+   if(data == data.split("").reverse().join("")){
+       if(output.length < data.length){
+           output = data
+       }
+       
+   }
+}
+
+
+//12. Counting Distinct Elements in an Array
+
+ arr = [10, 20, 40, 30, 50, 20, 10, 20]
+ // approach -1
+ let output =[]
+ for(let data of arr){
+     if(!output.includes(data)){
+         output.push(data)
+     }
+ }
+ 
+//  console.log(output)
+ 
+//  approach - 2
+arr.sort((a,b) => a-b)
+
+
+let i=0
+for(let j=1;j<=arr.length-1;j++){
+    if(arr[i] != arr[j]){
+        i+=1
+        arr[i] = arr[j]
+    }
+}
+
+// approach - 3
+let output1 =[...new Set(arr)]
+
+
+//13. Repeating elements in an Array 
+
+ arr = [10, 20, 40, 30, 50, 20, 10, 20]
+ // approach -1
+ let output =[]
+ let repeat =new Set()
+ for(let data of arr){
+     if(!output.includes(data)){
+         output.push(data)
+     }
+     else{
+         repeat.add(data)
+     }
+ }
+ 
+ console.log(repeat)
+ 
+//  approach - 2
+let hash ={}
+
+for(let data of arr){
+    hash[data] =( hash[data]+1||0+1)
+}
+
+for(let item in hash){
+    if(hash[item] > 1) console.log(item)
+}
+
+console.log(hash)
+
+
+//14. non-repeating elements in an array 
+
+ arr = [10, 20, 40, 30, 50, 20, 10, 20]
+ // approach -1
+let hash ={}
+for(let item of arr){
+    hash[item] =(hash[item]+1 || 1)
+}
+
+for(let key in hash){
+    if(hash[key] ==1) console.log(key)
+}
+
+// approach -2
+
+
+let visiter = new Array(arr.length).fill(false)
+let output =[]
+for(let i=0;i<=arr.length-1;i++){
+    if(visiter[i]) continue
+    let count=1
+    for(let j=i+1;j<=arr.length-1;j++){
+        if(arr[i] == arr[j]){
+            visiter[j] = true
+            count +=1
+            continue
+        }
+    }
+    if(count == 1){
+        output.push(arr[i])
+    }
+}
+
+// console.log(output)
+
+// approach - 3
+let output =[]
+for(let i=0;i<=arr.length-1;i++){
+    let count =1
+    for(let j=i+1;j<=arr.length-1;j++){
+        if(arr[i] == arr[j]){
+            count +=1
+        }
+        
+    }
+    
+    if(count ==1){
+        output.push(arr[i])
+    }
+        
+}
+
+//15. Removing Duplicates elements from an array
+
+ arr = [10, 20, 40, 30, 50, 20, 10, 20]
+ // approach -1
+
+output =[ ...new Set(arr)]
+console.log(output)
+
+// approach -2
+let output =[]
+
+for(let item of arr){
+    if(!output.includes(item)){
+        output.push(item)
+    }
+}
+
+// approach -3
+let i=0
+arr.sort((a,b) => a-b)
+for(let j=1;j<=arr.length-1;j++){
+    if(arr[i] != arr[j]){
+        i+=1
+        arr[i] = arr[j]
+    }
+}
+
+console.log(arr.slice(0 , i))
+
+
+
+ 
+
+
+
+
+ 
+
+
+
