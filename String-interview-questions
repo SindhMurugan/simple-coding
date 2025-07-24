@@ -49,4 +49,81 @@ char ='z'
 
 console.log(char.charCodeAt(0))
 
+// 6.count the number of vowels in a string
+
+let input ="PrepInsta"
+
+let vowels =['a' , 'e' , 'i' , 'o' , 'u']
+let count =0
+for(let char of input){
+    if(vowels.includes(char.toLowerCase())){
+        count+=1
+    }
+}
+
+// 7.Program to Remove Vowels from a String
+
+let input ="PrepInsta"
+// approach -1
+let vowels =['a' , 'e' , 'i' , 'o' , 'u']
+let output =""
+for(let char of input){
+    if(!vowels.includes(char.toLowerCase())){
+       output += char
+    }
+}
+
+
+
+// 8. Write a program to check whether a string is palindrome 
+input_string = 'civic'
+
+// approach -1
+if(input_string == input_string.split("").reverse().join("")){
+    console.log(true)
+}
+else{
+    console.log(false)
+}
+
+// approach -2
+function checkPalindrome(){
+let i=0
+let j = input_string.length-1
+while(i <= j){
+    if(input_string[i] != input_string[j]) return false
+    i+=1
+    j-=1
+}
+
+return true
+}
+
+
+// 9. Write a program to check whether a string is palindrome 
+input_string = 'civicyxd'
+
+// approach -1
+output = input_string.split("").reverse("").join("")
+
+// approach -2
+let output =""
+
+for(let i=input_string.length-1 ; i>=0;i--){
+    output += input_string[i]
+}
+
+// 10. program to remove all character from string except alphabets
+
+String1 = "#Justice!For@Chutki123"
+
+// approch -1
+let output =""
+for(let char of String1){
+    if('a' <= char || 'A' <= char){
+        output += char
+    }
+}
+
+
 
