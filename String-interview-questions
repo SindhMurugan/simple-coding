@@ -125,5 +125,64 @@ for(let char of String1){
     }
 }
 
+// 11.Remove Spaces from a String
+let String = "PrepInsta is fabulous"
+// approach -1
+let output =""
+for(let char of String.split(" ")){
+    output += char
+}
+
+
+// 12.// Remove brackets from an algebraic expression
+let output =""
+let input ="(x+y)+(z+q)"
+
+for(let char of input){
+   if(!(char == '(' || char == ')')){
+       output += char
+   }
+}
+
+// 13.Count the Sum of Numbers in a String
+let String = "Daya123Ben456"
+// #initialize integer variable
+sum1 = 0
+
+for(let char of String){
+    if(+(char)){
+        sum1+=+(char)
+    }
+}
+
+// 14.convert first and last letter of string to Upper-Case
+let char = "prepinsta"
+let output = char.charAt(0).toUpperCase()+char.slice(1,char.length-2)+char.slice(char.length-1).toUpperCase()
+
+// 15. check if two Strings are Anagram or not
+// approach -1
+String1 = "Listen"
+String2 = "Silent"
+
+function anagram(){
+    for(let char of String1){
+    if(!String2.toUpperCase().includes(char.toUpperCase())){
+        return false
+    }
+    return true
+    }
+}
+
+console.log(anagram())
+
+// apprach -2
+
+let arr1 = String1.toUpperCase().split("").sort((a,b) => a.localeCompare(b)).join("")
+let arr2 = String2.toUpperCase().split("").sort((a,b) => a.localeCompare(b)).join("")
+
+console.log(arr1 == arr2)
+
+
+
 
 

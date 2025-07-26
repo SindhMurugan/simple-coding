@@ -399,6 +399,48 @@ for(let j=1;j<=arr.length-1;j++){
 
 console.log(arr.slice(0 , i))
 
+// 16.count numbers of even and odd elements
+
+arr = [11, 20, 35, 40, 53]
+// approach -1 
+
+for(let item of arr){
+    if(item%2 == 0){
+        console.log(item)
+    }
+    else{
+        console.log(item)
+    }
+}
+
+// 17.flatten array
+
+arr =[1,2,3,[4,[5,6]]]
+
+
+// approach -1
+let output =[]
+function flatten(arr){
+    for(let item of arr){
+        if(Array.isArray(item)){
+            flatten(item)
+        }
+        else{
+            output.push(item)
+        }
+    }
+    return output
+}
+
+// approach -2
+
+function flatted(arr){
+    return arr.reduce((acc , item)=> 
+        Array.isArray(item) ? acc.concat(flatted(item)) : acc.concat(item)
+    , [])
+}
+
+console.log(flatted(arr) , 'output')
 
 
  

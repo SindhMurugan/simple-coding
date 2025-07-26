@@ -1,0 +1,65 @@
+
+const obj = {
+  name: "Simbu",
+  address: {
+    city: "Chennai"
+  },
+  greet: function () {
+    alert("Hello!");
+  }
+};
+
+
+
+
+// shallow copy
+// we can't access the function from the object if we use build in method
+// approach -1 
+
+let copyObj = Object.assign({} , obj)
+copyObj.address.city = 'salem'
+console.log(copyObj , obj)
+
+// // // approach-2 
+let copyObj = {...obj}
+copyObj.address.city = 'ramer kovil'
+console.log(copyObj, obj)
+
+// // approach -3
+let copyObj = Object.create(obj)
+copyObj.address.city = 'ramer kovil'
+
+// manual way of shallow copy
+
+
+// deep copy
+let copyObj=  JSON.parse(JSON.stringify(obj))
+console.log(copyObj, obj)
+
+// approach -2
+let copyObj = structuredClone(obj)
+console.log(copyObj)
+
+// manuall
+
+function deepObj(obj){
+    if(typeof obj != 'object' || !obj){
+        return obj
+    }
+     return Object.keys(obj).reduce((acc, key) => {
+         acc[key] = deepObj(obj[key])
+         return acc
+     },{})
+    
+}
+
+console.log(deepObj(obj).greet() , 'DeepObj')
+
+
+
+
+
+
+
+
+
