@@ -1,0 +1,51 @@
+let obj={
+    name:"fine"
+}
+
+function bindf(arg){
+    
+    console.log(this.name , 'sindhu creating polyfill for call',arg)
+    
+}
+
+
+Function.prototype.customCall = function(contect ={} , args){
+    if(!typeof this == 'Function'){
+        throw new Error("failed")
+    }
+    
+    contect.fn = this
+    contect.fn(args)
+}
+
+Function.prototype.customCall = function(contect ={} , args){
+    if(!typeof this == 'Function'){
+        throw new Error("failed")
+    }
+    
+    if(!Array.isArray(args)){
+        throw new Error("failed")
+    }
+    
+    contect.fn = this
+    contect.fn(args)
+}
+
+
+Function.prototype.customBind = function(contect ={} , args){
+    if(!typeof this == 'Function'){
+        throw new Error("failed")
+    }
+    
+    contect.fn = this
+    return function(args){
+        return contect.fn(args)
+    }
+    // contect.fn(args)
+}
+
+
+let custom = bindf.customBind(obj)
+custom("customBind")
+
+
