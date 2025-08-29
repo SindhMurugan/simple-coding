@@ -49,3 +49,88 @@ let custom = bindf.customBind(obj)
 custom("customBind")
 
 
+let arr =[5,10,15,3,2]
+
+//polyfill map
+
+Array.prototype.Map = function(cb){
+    let temp =[]
+    for(let i=0;i<this.length;i++){
+        temp.push(cb(this[i]))
+    }
+    
+    return temp
+}
+
+
+
+let buildInMap = arr.map((val) => val*2)
+console.log(buildInMap,'buildInMap')
+
+let polyfillMap = arr.Map((val) => val*2)
+console.log(polyfillMap,'polyfillMap')
+
+
+
+
+//polyfill reduce
+Array.prototype.Reduce = function(cb){
+    let temp =0
+    for(let i=0;i<this.length;i++){
+        temp = cb(temp,this[i])
+    }
+    
+    return temp
+}
+
+
+
+let buildInReduce = arr.reduce((acc,val) => acc+val,0)
+console.log(buildInReduce,'buildInReduce')
+
+let polyfillReduce = arr.Reduce((acc,val) => acc+val,0)
+console.log(polyfillReduce,'polyfillReduce')
+
+
+//polyfill filter
+
+Array.prototype.Filter = function(cb){
+    let temp =[]
+    for(let i=0;i<this.length;i++){
+        if(cb(this[i])){
+             temp.push(this[i])
+        }
+       
+    }
+    
+    return temp
+}
+
+
+
+let buildInFilter = arr.filter((val) => val>10)
+console.log(buildInFilter,'buildInFilter')
+
+let polyfillFilter = arr.Filter((val) => val>10)
+console.log(polyfillFilter,'polyfillFilter')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
